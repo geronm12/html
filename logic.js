@@ -1,5 +1,7 @@
 const vscode = require("vscode");
 const fs = require("fs");
+const { MENSAJE_DE_ERROR, MENSAJE_DE_INFORMACION } = require("./constants.js");
+
 const htmlPath = "/index.html";
 const cssPath = "/css/styles.css";
 
@@ -36,11 +38,9 @@ function createWorkspaceFilesAndInserText(baseUri, htmlTemplate, cssTemplate) {
 
 function showMessage(result) {
   if (result) {
-    vscode.window.showInformationMessage(
-      "Rolling Code 33i <Archivos Creados Correctamente>"
-    );
+    vscode.window.showInformationMessage(MENSAJE_DE_INFORMACION);
   } else {
-    vscode.window.showErrorMessage("El archivo que desea crear ya existe");
+    vscode.window.showErrorMessage(MENSAJE_DE_ERROR);
   }
 }
 
